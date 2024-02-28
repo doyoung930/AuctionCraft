@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    networks: [ default-net ]
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/data
+    environment:
+      PGDATA: /data/postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Asia/Seoul
+   
+  postgres-init:
+    container_name: postgres-init
+    image: postgres:latest
+    restart: "no"
+    networks: [ default-net ]
+    volumes:
+      - postgres-data:/data
+    command: ["postgres", "-c", "fsync=off", "-c", "synchronous_commit=off", "-c", "full_page_writes=off", "-c", "wal_level=logical", "-c", "max_wal_senders=1", "-c", "max_replication_slots=1", "-c", "max_connections=1000", "-c", "max_prepared_transactions=1000", "-c", "max_locks_per_transaction=64", "-c", "max_worker_processes=8", "-c", "max_parallel_workers_per_gather=4", "-c", "max_parallel_workers=8"]
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    networks: [ default-net ]
+    ports:
+      - "6379:6379"
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    restart: always
+    networks: [ default-net ]
+    ports:
+      - "8088:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+networks:
+  default-net:
+    name: default-net
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+
+volumes:
+  postgres-data:
+  go-pkg:
