@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 
-../util/proto_gen/
+/util/proto_gen/
