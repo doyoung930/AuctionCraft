@@ -62,6 +62,9 @@ extern RequestDefaultTypeInternal _Request_default_instance_;
 class Response;
 struct ResponseDefaultTypeInternal;
 extern ResponseDefaultTypeInternal _Response_default_instance_;
+class echo;
+struct echoDefaultTypeInternal;
+extern echoDefaultTypeInternal _echo_default_instance_;
 }  // namespace io
 namespace google {
 namespace protobuf {
@@ -74,6 +77,187 @@ namespace io {
 
 
 // -------------------------------------------------------------------
+
+class echo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:io.echo) */ {
+ public:
+  inline echo() : echo(nullptr) {}
+  ~echo() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR echo(::google::protobuf::internal::ConstantInitialized);
+
+  inline echo(const echo& from)
+      : echo(nullptr, from) {}
+  echo(echo&& from) noexcept
+    : echo() {
+    *this = ::std::move(from);
+  }
+
+  inline echo& operator=(const echo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline echo& operator=(echo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const echo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const echo* internal_default_instance() {
+    return reinterpret_cast<const echo*>(
+               &_echo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(echo& a, echo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(echo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(echo* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  echo* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<echo>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const echo& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const echo& from) {
+    echo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(echo* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "io.echo";
+  }
+  protected:
+  explicit echo(::google::protobuf::Arena* arena);
+  echo(::google::protobuf::Arena* arena, const echo& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTextFieldNumber = 1,
+  };
+  // string text = 1;
+  void clear_text() ;
+  const std::string& text() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_text(Arg_&& arg, Args_... args);
+  std::string* mutable_text();
+  PROTOBUF_NODISCARD std::string* release_text();
+  void set_allocated_text(std::string* value);
+
+  private:
+  const std::string& _internal_text() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_text(
+      const std::string& value);
+  std::string* _internal_mutable_text();
+
+  public:
+  // @@protoc_insertion_point(class_scope:io.echo)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      20, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr text_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_io_5fmessages_2eproto;
+};// -------------------------------------------------------------------
 
 class Response final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:io.Response) */ {
@@ -134,7 +318,7 @@ class Response final :
                &_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Response& a, Response& b) {
     a.Swap(&b);
@@ -363,7 +547,7 @@ class Request final :
                &_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(Request& a, Request& b) {
     a.Swap(&b);
@@ -515,6 +699,63 @@ class Request final :
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// echo
+
+// string text = 1;
+inline void echo::clear_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.text_.ClearToEmpty();
+}
+inline const std::string& echo::text() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:io.echo.text)
+  return _internal_text();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void echo::set_text(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.text_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:io.echo.text)
+}
+inline std::string* echo::mutable_text() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_text();
+  // @@protoc_insertion_point(field_mutable:io.echo.text)
+  return _s;
+}
+inline const std::string& echo::_internal_text() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.text_.Get();
+}
+inline void echo::_internal_set_text(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.text_.Set(value, GetArena());
+}
+inline std::string* echo::_internal_mutable_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.text_.Mutable( GetArena());
+}
+inline std::string* echo::release_text() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:io.echo.text)
+  return _impl_.text_.Release();
+}
+inline void echo::set_allocated_text(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.text_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.text_.IsDefault()) {
+          _impl_.text_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:io.echo.text)
+}
+
 // -------------------------------------------------------------------
 
 // Request

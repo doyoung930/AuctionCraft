@@ -2,6 +2,17 @@
 
 package io;
 
+// 서비스 정의
+service IoService {
+  // 요청을 처리하고 응답을 반환하는 서비스 메소드
+  rpc EchoTest(echo) returns (echo);
+  rpc ProcessRequest(Request) returns (Response);
+}
+
+message echo {
+  string text = 1;
+}
+
 // 요청 메시지 정의
 message Request {
   string request_id = 1; // 고유 요청 ID
@@ -16,8 +27,3 @@ message Response {
   string error_message = 4; // 에러 발생 시 에러 메시지
 }
 
-// 서비스 정의
-service IoService {
-  // 요청을 처리하고 응답을 반환하는 서비스 메소드
-  rpc ProcessRequest(Request) returns (Response);
-}

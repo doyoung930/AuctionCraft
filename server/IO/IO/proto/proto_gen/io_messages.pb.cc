@@ -22,6 +22,27 @@ namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 namespace io {
 
+inline constexpr echo::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR echo::echo(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct echoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR echoDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~echoDefaultTypeInternal() {}
+  union {
+    echo _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 echoDefaultTypeInternal _echo_default_instance_;
+
 inline constexpr Response::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : response_id_(
@@ -74,13 +95,22 @@ struct RequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RequestDefaultTypeInternal _Request_default_instance_;
 }  // namespace io
-static ::_pb::Metadata file_level_metadata_io_5fmessages_2eproto[2];
+static ::_pb::Metadata file_level_metadata_io_5fmessages_2eproto[3];
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_io_5fmessages_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_io_5fmessages_2eproto = nullptr;
 const ::uint32_t TableStruct_io_5fmessages_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::io::echo, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::io::echo, _impl_.text_),
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::io::Request, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -107,33 +137,37 @@ const ::uint32_t TableStruct_io_5fmessages_2eproto::offsets[] PROTOBUF_SECTION_V
 
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-        {0, -1, -1, sizeof(::io::Request)},
-        {10, -1, -1, sizeof(::io::Response)},
+        {0, -1, -1, sizeof(::io::echo)},
+        {9, -1, -1, sizeof(::io::Request)},
+        {19, -1, -1, sizeof(::io::Response)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
+    &::io::_echo_default_instance_._instance,
     &::io::_Request_default_instance_._instance,
     &::io::_Response_default_instance_._instance,
 };
 const char descriptor_table_protodef_io_5fmessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-    "\n\021io_messages.proto\022\002io\".\n\007Request\022\022\n\nre"
-    "quest_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\t\"X\n\010Respo"
-    "nse\022\023\n\013response_id\030\001 \001(\t\022\017\n\007payload\030\002 \001("
-    "\t\022\017\n\007success\030\003 \001(\010\022\025\n\rerror_message\030\004 \001("
-    "\t28\n\tIoService\022+\n\016ProcessRequest\022\013.io.Re"
-    "quest\032\014.io.Responseb\006proto3"
+    "\n\021io_messages.proto\022\002io\"\024\n\004echo\022\014\n\004text\030"
+    "\001 \001(\t\".\n\007Request\022\022\n\nrequest_id\030\001 \001(\t\022\017\n\007"
+    "payload\030\002 \001(\t\"X\n\010Response\022\023\n\013response_id"
+    "\030\001 \001(\t\022\017\n\007payload\030\002 \001(\t\022\017\n\007success\030\003 \001(\010"
+    "\022\025\n\rerror_message\030\004 \001(\t2X\n\tIoService\022\036\n\010"
+    "EchoTest\022\010.io.echo\032\010.io.echo\022+\n\016ProcessR"
+    "equest\022\013.io.Request\032\014.io.Responseb\006proto"
+    "3"
 };
 static ::absl::once_flag descriptor_table_io_5fmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_io_5fmessages_2eproto = {
     false,
     false,
-    227,
+    281,
     descriptor_table_protodef_io_5fmessages_2eproto,
     "io_messages.proto",
     &descriptor_table_io_5fmessages_2eproto_once,
     nullptr,
     0,
-    2,
+    3,
     schemas,
     file_default_instances,
     TableStruct_io_5fmessages_2eproto::offsets,
@@ -160,6 +194,196 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_io_5fmes
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_io_5fmessages_2eproto(&descriptor_table_io_5fmessages_2eproto);
 namespace io {
+// ===================================================================
+
+class echo::_Internal {
+ public:
+};
+
+echo::echo(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:io.echo)
+}
+inline PROTOBUF_NDEBUG_INLINE echo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : text_(arena, from.text_),
+        _cached_size_{0} {}
+
+echo::echo(
+    ::google::protobuf::Arena* arena,
+    const echo& from)
+    : ::google::protobuf::Message(arena) {
+  echo* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+
+  // @@protoc_insertion_point(copy_constructor:io.echo)
+}
+inline PROTOBUF_NDEBUG_INLINE echo::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : text_(arena),
+        _cached_size_{0} {}
+
+inline void echo::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+echo::~echo() {
+  // @@protoc_insertion_point(destructor:io.echo)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void echo::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.text_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void echo::Clear() {
+// @@protoc_insertion_point(message_clear_start:io.echo)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.text_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* echo::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 20, 2> echo::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_echo_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string text = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(echo, _impl_.text_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string text = 1;
+    {PROTOBUF_FIELD_OFFSET(echo, _impl_.text_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\7\4\0\0\0\0\0\0"
+    "io.echo"
+    "text"
+  }},
+};
+
+::uint8_t* echo::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:io.echo)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string text = 1;
+  if (!this->_internal_text().empty()) {
+    const std::string& _s = this->_internal_text();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "io.echo.text");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:io.echo)
+  return target;
+}
+
+::size_t echo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:io.echo)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string text = 1;
+  if (!this->_internal_text().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_text());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData echo::_class_data_ = {
+    echo::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* echo::GetClassData() const {
+  return &_class_data_;
+}
+
+void echo::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<echo*>(&to_msg);
+  auto& from = static_cast<const echo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:io.echo)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_text().empty()) {
+    _this->_internal_set_text(from._internal_text());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void echo::CopyFrom(const echo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:io.echo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool echo::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* echo::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void echo::InternalSwap(echo* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.text_, &other->_impl_.text_, arena);
+}
+
+::google::protobuf::Metadata echo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_io_5fmessages_2eproto_getter, &descriptor_table_io_5fmessages_2eproto_once,
+      file_level_metadata_io_5fmessages_2eproto[0]);
+}
 // ===================================================================
 
 class Request::_Internal {
@@ -377,7 +601,7 @@ void Request::InternalSwap(Request* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata Request::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_io_5fmessages_2eproto_getter, &descriptor_table_io_5fmessages_2eproto_once,
-      file_level_metadata_io_5fmessages_2eproto[0]);
+      file_level_metadata_io_5fmessages_2eproto[1]);
 }
 // ===================================================================
 
@@ -650,7 +874,7 @@ void Response::InternalSwap(Response* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_io_5fmessages_2eproto_getter, &descriptor_table_io_5fmessages_2eproto_once,
-      file_level_metadata_io_5fmessages_2eproto[1]);
+      file_level_metadata_io_5fmessages_2eproto[2]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace io
