@@ -1,0 +1,23 @@
+﻿syntax = "proto3";
+
+package io;
+
+// 요청 메시지 정의
+message Request {
+  string request_id = 1; // 고유 요청 ID
+  string payload = 2;    // 실제 요청 데이터
+}
+
+// 응답 메시지 정의
+message Response {
+  string response_id = 1; // 요청 ID와 일치
+  string payload = 2;     // 처리 결과 또는 반환 데이터
+  bool   success = 3;       // 요청 처리 성공 여부
+  string error_message = 4; // 에러 발생 시 에러 메시지
+}
+
+// 서비스 정의
+service IoService {
+  // 요청을 처리하고 응답을 반환하는 서비스 메소드
+  rpc ProcessRequest(Request) returns (Response);
+}
